@@ -112,80 +112,81 @@ Stage 9: Using Git and Shell Scripting
 
 24. Bash and Python Integration  
    - Running Python scripts in the terminal
-1️⃣ Work Inside a Virtual Machine (VM)
-Since your school allows using a virtual machine, this is the best approach.
+   - 
+1) Work Inside a Virtual Machine (VM)
+            OR
+2) Use Local Installation (Without Admin Rights)
 
-✅ Steps:
+### **What is Conda?**  
+**Conda** is a **package manager and environment manager** that helps you install and manage **Python** and other dependencies without requiring **admin rights**.  
 
-Check if you can install a VM
+It is especially useful if:  
+✔️ You **can’t install Python system-wide** (like in your case).  
+✔️ You **need multiple Python versions** for different projects.  
+✔️ You **want an easy way to install packages** without `pip` conflicts.
 
-If you can, install Ubuntu 22.04 (or any Linux OS with Python 3.10).
-Use VirtualBox or VMware (if your school allows).
-Use a Pre-installed VM
+---
 
-If 42 provides a VM image (like on intranet), use that.
-Inside the VM, install Python 3.10
+### **Why Use Conda?**  
+✔️ **Works Without Admin Rights** – You can install Python in your **home directory**.  
+✔️ **Manages Python Versions** – Install and switch between **Python 2, 3.10, etc.**  
+✔️ **Manages Dependencies** – Easily install packages like `numpy`, `pandas`, etc.  
 
-If Python 3.10 is missing, install it with:
-sh
-Copy
-Edit
-sudo apt update
-sudo apt install python3.10
-Check the version:
-sh
-Copy
-Edit
-python3.10 --version
-2️⃣ If a VM is Not Allowed, Use the Cluster Computers
-If you cannot use a VM, use the 42 school computers directly and check if Python 3.10 is available.
+---
 
-✅ Steps:
+### **How to Install Conda (Without Admin Rights)**
+Since you don’t have admin rights, you can **install Miniconda (lightweight version of Conda)** in your home directory.
 
-Check if Python 3.10 is already installed:
+#### **Step 1: Download Miniconda**
+Run this in your terminal:
+```sh
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+```
 
-sh
-Copy
-Edit
-python3.10 --version
-If it works, you're good to go!
-If not, check if you can install Python in a local directory (like goinfre).
-Install Python 3.10 in Your User Space (Goinfre)
-
-If your campus has goinfre, install Python there to avoid needing admin rights.
+#### **Step 2: Install in Your User Space**
 Run:
-sh
-Copy
-Edit
-mkdir -p $HOME/goinfre/python310
-cd $HOME/goinfre
-wget https://www.python.org/ftp/python/3.10.12/Python-3.10.12.tgz
-tar -xvf Python-3.10.12.tgz
-cd Python-3.10.12
-./configure --prefix=$HOME/goinfre/python310
-make -j$(nproc)
-make install
-Then, add it to your path:
-sh
-Copy
-Edit
-echo 'export PATH=$HOME/goinfre/python310/bin:$PATH' >> ~/.zshrc
-source ~/.zshrc
-Now, check if Python 3.10 is available:
-sh
-Copy
-Edit
-python3.10 --version
-3️⃣ General Rules Summary
-No Segmentation Faults: Your programs must not crash (e.g., segfault, bus error).
-Testing is Encouraged: You should write test programs to validate your code.
-Use Git for Submissions: Everything must be in the assigned Git repository.
-Deepthought Grading: If an error occurs in your work, grading stops immediately.
-Use Explicit Imports:
-✅ Allowed: import numpy as np
-❌ Not Allowed: from numpy import *
-No Global Variables: Declare all variables inside functions/classes.
-📌 Recommended Action for You
-🔹 First Choice: Use a Virtual Machine with Python 3.10.
-🔹 Second Choice: Use Python 3.10 pre-installed on 42's computers.
-🔹 Third Choice (if required): Install Python 3.10 in goinfre.
+```sh
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+- When it asks for the installation path, choose a location **inside your home directory** (e.g., `~/miniconda`).
+- Say **yes** when it asks if you want to initialize Conda.
+
+#### **Step 3: Restart Your Shell**
+Close and reopen your terminal or run:
+```sh
+source ~/.bashrc  # or source ~/.zshrc if you're using Zsh
+```
+
+#### **Step 4: Create a Python 3.10 Environment**
+Now that Conda is installed, create an environment with **Python 3.10**:
+```sh
+conda create --name python310 python=3.10
+```
+Activate the environment:
+```sh
+conda activate python310
+```
+Now, running:
+```sh
+python --version
+```
+should show **Python 3.10**.
+
+---
+
+### **Using Conda for the 42 Piscine**
+✔️ **You can install packages without admin rights**:  
+```sh
+conda install numpy pandas
+```
+✔️ **Switch between Python versions easily**:  
+```sh
+conda activate python310  # Switch to Python 3.10
+conda deactivate          # Exit the environment
+```
+✔️ **Keeps your workspace clean** – No need to modify system-wide settings.  
+
+---
+
+### **🚀 Best Choice for You?**
+Yes! Since you **don’t have admin rights**, using **Conda** is one of the best ways to get Python 3.10 working for your 42 School Python Piscine. Would you like help setting it up?
