@@ -28,6 +28,20 @@ pyenv uninstall 3.10.13  # Remove the broken installation
 
 pyenv install 3.10.13
 
+**redo to ensure pyenv is set up in your shell:
+
+export PYENV_ROOT="$HOME/.pyenv"
+
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+eval "$(pyenv init --path)"
+
+eval "$(pyenv init -)"
+
+**reload the shell
+
+source ~/.zshrc   # or source ~/.bashrc for bash
+
 
 **check versions
 
