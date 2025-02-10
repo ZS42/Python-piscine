@@ -1,4 +1,4 @@
-# Python-piscine
+install # Python-piscine
 
 **get homebrew using
 
