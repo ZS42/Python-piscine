@@ -20,6 +20,15 @@ source ~/.zshrc  # Apply changes
 
 pyenv install 3.10.13
 
+**ran into error bc of missing xz package
+
+brew install xz
+
+pyenv uninstall 3.10.13  # Remove the broken installation
+
+pyenv install 3.10.13
+
+
 **check versions
 
 pyenv versions
