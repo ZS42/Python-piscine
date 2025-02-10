@@ -1,26 +1,45 @@
 # Python-piscine
 
 **get homebrew using
+
 curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
 
 brew install pyenv
+
 **Ensure pyenv is set up in your shell:
+
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+
 echo 'eval "$(pyenv init --path)"' >> ~/.zshrc
+
 source ~/.zshrc  # Apply changes
+
 **install pyenv
+
 pyenv install 3.10.13
+
 **check versions
+
 pyenv versions
+
 **Navigate to your project directory and Set Python 3.10 locally:
+
 pyenv local 3.10.13
+
 **to check version is correct
+
 python3 --version
+
 **use python in virtual environment
+
 python -m venv venv  # Create virtual environment
+
 source venv/bin/activate  # Activate it
+
 **If you want to switch back to default Python of your system
+
 rm .python-version
 
 Here's a structured learning plan to help you master Python from the ground up for the 42 School's Python Piscine project:
