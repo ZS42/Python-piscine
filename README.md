@@ -16,9 +16,9 @@ echo 'eval "$(pyenv init --path)"' >> ~/.zshrc
 
 source ~/.zshrc  # Apply changes
 
-**install pyenv
+**install pyenv to get latest version of 3.10
 
-pyenv install 3.10.13
+pyenv install 3.10
 
 **ran into error bc of missing xz package
 
